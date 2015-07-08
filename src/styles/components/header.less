@@ -1,0 +1,127 @@
+.@{ns}-st{
+  .@{ns}-header{
+    background: @header-bg-color;
+    padding:0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    z-index: 999;
+    border-bottom: 1px solid @header-border-color;
+    text-align: center;
+    .clearfix;
+
+    [class^="flaticon-"],[class*=" flaticon-"]{
+      &:before,&:after{
+        margin: 0;
+        color:@header-icon-color;
+        font-size: 20px;
+      }
+
+      &:hover{
+        &:before,&:after{
+          color:white;
+        }
+      }
+    }
+
+    &__menu{
+      width: 30px;
+      height: 30px;
+      margin: 9px 20px;
+      padding: 0;
+      background: transparent;
+      border:none;
+      float:left;
+      line-height: 30px;
+
+      &:focus,&:visited{
+        outline: none;
+      }
+    }
+
+    &__title{
+      display: inline-block;
+      margin-left: -70px;
+      
+      > img{
+        height: 30px;
+        margin: 9px 0;
+      }
+    }
+
+    &-search{
+      display: none;
+      position: absolute;
+      background: @bg-url repeat top left;
+     
+
+      //tablet - portrait
+      @media screen and (min-width: (@tb-portrait-break)) {
+        display: block;
+        top:48px;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+      }
+
+      //tablet - landscape
+      @media screen and (min-width: (@tb-landscape-break)) {
+        top: 7px;
+        right:20px;
+        width: 240px;
+        height: 32px;
+        padding: 0;
+      }
+
+      .flaticon-search{
+        position: absolute;
+        top: 15px;
+        left: 21px;
+
+        &:before,&:after{
+          color:@header-icon-color-dark;
+        }
+
+        &:hover{
+          &:before,&:after{
+            color:@header-icon-color-dark;
+          }
+        }
+        
+         @media screen and (min-width: @tb-landscape-break) {
+          top:5px;
+          left:10px;
+         }
+      }
+
+      &__input{
+        .font;
+        height: 32px;
+        font-size: 14px;
+        line-height: 32px;
+        color:@header-icon-color;
+        border: 1px solid @header-border-color;
+        margin: 0;
+        padding: 0 10px 0 38px;
+
+        //tablet - portrait
+        @media screen and (min-width: (@tb-portrait-break)) {
+          width: 100%;
+        }
+
+        //tablet - landscape
+        @media screen and (min-width: (@tb-landscape-break)) {
+          width: 240px;
+        }
+
+
+        &:focus,&:visited{
+          outline: none;
+        }
+      }
+    }
+  }
+}

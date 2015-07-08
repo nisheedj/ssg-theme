@@ -1,0 +1,20 @@
+//The gird definition and usage goes here
+.@{ns}-st{
+  .@{ns}-r{
+    .row();
+  }
+
+  .mb-mixin(1);
+
+  //tablet - lanscape
+  @media screen and (min-width: @tb-landscape-break) {
+    .col-mixin(1);
+  }
+
+  //Desktop
+   @media screen and (min-width: @dt-break) {
+    .@{ns}-r{
+      width: @dt-break;
+    }
+   }
+}

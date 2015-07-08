@@ -1,0 +1,65 @@
+////////////////////////////
+//SSG - Theme             //
+//Author:Nisheed Jagadish //
+//Project: Custom KSS     //
+////////////////////////////
+
+/*Namespace*/
+@ns:ssg;
+
+/* Grid options */
+@column-width: 67.5;
+@gutter_width: 40px; // Your gutter width
+@columns: 12; // The amount of columns you want
+@max_width: 100%; // Set a maximum width of the site
+
+// Half the gutter for borders, margin, padding etc 
+@gutter: @gutter_width*0.5;
+
+//Breakpoints
+@tb-portrait-break: 750px;
+@tb-landscape-break: 970px;
+@dt-break: 1170px;
+
+//Background
+@bg-url:url('noise.gif');
+
+//Type
+@colors-background     : #fff;
+
+@colors-foreground     : #444;
+@colors-heading        : #111;
+@colors-quotes         : #666;
+
+@colors-link           : #0645ad;
+@colors-link-visited   : #0645ad;
+@colors-link-hover     : lighten(@colors-link, 20%);
+@colors-link-active    : #faa700;
+
+@font-body             : Helvetica, 'Helvetica Neue', Arial, sans-serif;
+@font-code             : monospace, monospace;
+@font-icon             : "Flaticon";
+
+@font-size             : 16px;
+@vertical-rhythm       : @font-size * 1.5;
+
+//Header
+@header-bg-color:#3b73b3;
+@header-border-color:#bdc3c7;
+@header-menu-icon:url('nav-toggle.png');
+@header-icon-color:#8eaed3;
+@header-icon-color-dark:#326299;
+
+//Guide
+@guide-bg-color:#FFFFFF;
+@guide-radius:3px;
+@guide-param-table-border-color:#DDDDDD;
+@guide-param-table-header-bg-color:#EEEEEE;
+@guide-code-radius:4px;
+@guide-code-color:#FFFFFF;
+@guide-code-bg-color:@header-bg-color;
+@guide-header-border-color:darken(#e4e4e4, 10%);
+
+//Sidebar
+@aside-bg-color:@header-icon-color-dark;
+ 

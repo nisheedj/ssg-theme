@@ -1,0 +1,102 @@
+// Global CSS goes here
+/**
+ * Grid
+ *
+ * Set up responsive grid system.
+ * 
+ * This is heavily infleuenced by the Semantic Grid http://semantic.gs
+ *
+ * @author Abban Dunne http://abandon.ie
+ * @author James Wilson http://jimmynotjim.com
+ * @version 1.1
+ */
+
+/* Utility variable — you should never need to modify this */
+@gridsystem_width: @columns * 1px;
+@padding: @gutter_width*0.5;
+@correction: 0.5 / @max_width * 100 * 1%; // NOTE: Check this in IE
+
+/* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack */
+.clearfix(){
+  *zoom:1;
+  
+  &:before,
+  &:after{
+      content:"";
+      display:table;
+  }
+  &:after{
+      clear:both;
+  }
+}
+
+/* Ensure grid columns are set to border-boxes. This is essential */
+.border-box(){
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* Our row container */
+.row(@padding:0){
+  .clearfix();
+  .border-box();
+
+  display:block;
+  max-width: @max_width;
+  margin: 0 auto;
+  padding:0 @padding;
+}
+
+/* Our column container */
+.column(@x, @padding:@padding, @columns:@columns){
+  .border-box();
+
+  display: inline;
+  float: left;
+  width: 100%*(@x / @columns);
+  padding: 0 @padding;
+
+  //IE 6 & 7 Fix
+  //*width: 100%*((@x / @gridsystem_width)-@correction);
+  //*padding: 0 (@padding)-@correction;
+}
+
+/* Push adds left padding */
+.push(@offset:1, @columns:@columns) {
+  margin-left: 100%*(@offset / @columns);
+}
+
+/* Pull adds right padding */
+.pull(@offset:1, @columns:@columns) {
+  margin-right: 100%*(@offset / @columns);
+}
+
+
+.col-mixin(@col-index) when (@col-index <= @columns){
+  .@{ns}-c@{col-index}{
+    .column(@col-index);
+  }
+  .col-mixin(@col-index + 1);
+}
+
+.push-mixin(@col-index) when (@col-index <= (@columns - 1)){
+  .@{ns}-pu@{col-index}{
+    .push(@col-index);
+  }
+  .push-mixin(@col-index + 1);
+}
+
+.pull-mixin(@col-index) when (@col-index <= (@columns - 1)){
+  .@{ns}-pl@{col-index}{
+    .pull(@col-index);
+  }
+  .pull-mixin(@col-index + 1);
+}
+
+.mb-mixin(@col-index) when (@col-index <= @columns){
+  .@{ns}-c@{col-index}{
+    .column(12);
+  }
+  .mb-mixin(@col-index + 1);
+}
