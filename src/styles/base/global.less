@@ -1,18 +1,23 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
 body{
-  background: @bg-url repeat top left;
-  padding-top: 48px;
+  background: @bg-url repeat top left !important;
+  padding-top: 48px !important;
+  margin-bottom: 60px !important;
 
   //tablet - portrait
   @media screen and (min-width: (@tb-portrait-break)) {
-    padding-top: 100px;
+    padding-top: 100px !important;
   }
   @media screen and (min-width: (@tb-landscape-break)) {
-    padding-top: 48px;
+    padding-top: 48px !important;
   }
 
   &.@{ns}-no-scroll{
-    height: 100%;
-    overflow: hidden;
+    height: 100% !important;
+    overflow: hidden !important;
   }
 }
 

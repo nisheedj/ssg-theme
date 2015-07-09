@@ -19,10 +19,10 @@ gulp.task('styles', function(){
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/public/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/public/'))
 });
 
 gulp.task('scripts', function(){
@@ -34,28 +34,35 @@ gulp.task('scripts', function(){
     }}))
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/public/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/'))
+    .pipe(gulp.dest('dist/public/'))
 });
 
 gulp.task('images',function(){
   return gulp.src('src/images/**/*.*')
-  .pipe(gulp.dest('dist/assets/'))
+  .pipe(gulp.dest('dist/public/'))
 });
 
 gulp.task('icons',function(){
   return gulp.src('src/fonts/**/*.*')
-  .pipe(gulp.dest('dist/assets/fonts'))
+  .pipe(gulp.dest('dist/public/fonts'))
 });
 
 gulp.task('scripts:lib',function(){
   return gulp.src('src/scripts/libs/**/*.*')
-  .pipe(gulp.dest('dist/assets/libs'))
+  .pipe(gulp.dest('dist/public/libs'))
 });
 
-gulp.task('default',['styles','scripts','images','icons','scripts:lib'], function(){
+gulp.task('html',function(){
+  return gulp.src('src/handlebars-index.html')
+  .pipe(rename({basename: 'index'}))
+  .pipe(gulp.dest('dist'))
+});
+
+gulp.task('default',['styles','scripts','images','icons','scripts:lib','html'], function(){
   gulp.watch("src/styles/**/*.less", ['styles','images','icons']);
   gulp.watch("src/scripts/**/*.js", ['scripts','scripts:lib']);
+  gulp.watch("src/*.html", ['html']);
 });

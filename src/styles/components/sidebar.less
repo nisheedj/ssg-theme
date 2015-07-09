@@ -62,11 +62,6 @@
             color: #FFFFFF;
             text-decoration: none;
           }
-
-          &:hover{
-            background-color: #FFFFFF;
-            color: @aside-bg-color;
-          }
         }
 
         &--l1{
@@ -84,13 +79,18 @@
           
           .@{ns}-sidebar-menu__item-link{
             line-height: 38px;
+            font-size: 14px;
 
             &:before{
               .icon-font-basic('\e001');
               margin-right: 10px;
               font-size: 10px;
             }
-             font-size: 14px;
+             
+            &:hover{
+              background-color: @yellow;
+              color: #FFFFFF;
+            }
           }
         }
       }
@@ -104,8 +104,12 @@
         width: 48px;
         height: 48px;
         font-size: 40px;
-        color: white;
+        color: @header-icon-color;
         float: right;
+
+        &:hover{
+          color:#FFFFFF;
+        }
       }
     }
 

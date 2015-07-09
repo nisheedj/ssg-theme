@@ -13,7 +13,7 @@
     <script src="dist/assets/libs/html5shiv.min.js"></script>
   <![endif]-->
 </head>
-<body ng-app="ssgApp" ng-controller="SSGController" ng-class="{'ssg-no-scroll':ssgsidebarActive}">
+<body id="ssgApp" ng-app="ssgApp" ng-controller="SSGController" ng-class="{'ssg-no-scroll':sidebarActive}">
   <div class="ssg-st">
     <header class="ssg-header">
       <button class="ssg-header__menu" ng-click="toggleMenu()">
@@ -24,7 +24,7 @@
       </a>
       <form class="ssg-header-search">
         <i class="flaticon-search"></i>
-        <input type="text" class="ssg-header-search__input" placeholder="Search" auto-complete="" ui-items="names"/>
+        <input type="text" class="ssg-header-search__input" placeholder="Search" auto-complete="" ui-items="sections"/>
       </form>
     </header>
     <article class="ssg-guide">
@@ -146,6 +146,28 @@
     </aside>
   </div>
   <div class="ssg-overlay" ng-class="{'ssg-overlay--active':sidebarActive}" ng-click="toggleMenu()"></div>
+  <footer class="ssg-footer">
+    Created with love @ Thoughtworks by Nisheed Jagadish
+  </footer>
+  <script type="text/javascript">
+    window.SSG = {};
+    /*SSG.menuData = [{
+      label: 'Components',
+      breadcrumb: 'Components > Label',
+      section: '0.0.1',
+      link: 'index.html#some-comp'
+    }, {
+      label: 'Javascript',
+      breadcrumb: 'Javascript > Tooltip > Title',
+      section: '1.0.1',
+      link: 'index.html#some-JS'
+    }, {
+      label: 'Alerts',
+      breadcrumb: 'Alerts > Label',
+      section: '1.0.1',
+      link: 'index.html#some-alert'
+    }];*/
+  </script>
   <script src="dist/assets/libs/jquery.min.js"></script>
   <script src="dist/assets/libs/jquery-ui.min.js"></script>
   <script src="dist/assets/libs/angular.min.js"></script>
